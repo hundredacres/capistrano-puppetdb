@@ -4,11 +4,11 @@ require "capistrano/puppetdb/version"
 Gem::Specification.new do |s|
   s.name        = 'capistrano-puppetdb'
   s.version     = Capistrano::PuppetDB::VERSION
-  s.date        = '2014-12-15'
+  s.date        = '2018-06-21'
   s.summary     = 'Use puppetdb to provide hosts for capistrano'
   s.description = 'queries puppetdb for host and role information'
-  s.authors     = ['Jeremy Kitchen']
-  s.email       = 'jeremy@nationbuilder.com'
+  s.authors     = ['Jeremy Kitchen', 'James Fryman']
+  s.email       = 'ops@nationbuilder.com'
   s.files       = ["lib/hola.rb"]
   s.homepage    = 'http://github.com/3dna/capistrano-puppetdb'
   s.license       = 'BSD'
@@ -18,6 +18,6 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
 
   s.add_runtime_dependency "capistrano"
-  s.add_runtime_dependency "puppetdb-ruby"
+  s.add_runtime_dependency("puppetdb-ruby", '0.0.1')
 end
 
