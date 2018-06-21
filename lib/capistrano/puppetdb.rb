@@ -26,7 +26,8 @@ module Capistrano
         if !(role_list & fetch(:bundle_roles)).empty?
           no_release = false
         end
-        server certname, user: 'rails', roles: role_list.to_a, primary: true, no_release: no_release
+
+        server certname, user: 'rails', roles: role_list.to_a.map { |m| m.to_sym }, primary: true, no_release: no_release
       end
     end
   end
