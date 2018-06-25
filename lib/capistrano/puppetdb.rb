@@ -28,7 +28,7 @@ module Capistrano
         end
 
         role_list.each do |role|
-          server certname, user: 'rails', roles: role_list.to_sym, primary: true, no_release: no_release
+          server certname, user: 'rails', roles: role_list.to_a, primary: true, no_release: no_release
         end
       end
     end
