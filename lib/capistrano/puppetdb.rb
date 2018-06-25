@@ -17,7 +17,7 @@ module Capistrano
 
       server_map = client.request('resources',resource.and(resource_tag)).data.inject({}) do |hashmap, role_resource|
         hashmap[role_resource['certname']] ||= Set.new
-        hashmap[role_resource['certname']] << role_resource['parameters'][role_parameter]
+        hashmap[role_resource['certname']] << role_resource['parameters'][role_parameter].to_sym
         hashmap
       end
 
@@ -27,9 +27,7 @@ module Capistrano
           no_release = false
         end
 
-        role_list.each do |role|
-          server certname, user: 'rails', roles: role_list.to_a, primary: true, no_release: no_release
-        end
+        server certname, user: 'rails', roles: role_list.to_a, primary: true, no_release: no_release
       end
     end
   end
