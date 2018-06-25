@@ -18,9 +18,8 @@ module Capistrano
 
       server_map = client.request('resources',resource.and(resource_tag)).data.inject({}) do |hashmap, role_resource|
         hashmap[role_resource['certname']] ||= Set.new
-
-        role_resource['parameters'][role_parameter].each do |role|
-          hashmap[role_resource['certname']] << role.to_sym
+        role_parameter = Array(role_resource['parameters'][role_parameter])
+        role_parameter.each { |role| hashmap[role_resource['certname']] << role }
         end
 
         hashmap
