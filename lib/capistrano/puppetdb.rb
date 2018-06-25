@@ -27,7 +27,9 @@ module Capistrano
           no_release = false
         end
 
-        server certname, user: 'rails', roles: role_list.to_a.map { |m| m.to_sym }, primary: true, no_release: no_release
+        role_list.each do |role|
+          server certname, user: 'rails', roles: role_list.to_sym, primary: true, no_release: no_release
+        end
       end
     end
   end
