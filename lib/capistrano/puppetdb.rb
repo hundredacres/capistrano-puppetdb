@@ -20,7 +20,6 @@ module Capistrano
         hashmap[role_resource['certname']] ||= Set.new
         role_parameter = Array(role_resource['parameters'][role_parameter])
         role_parameter.each { |role| hashmap[role_resource['certname']] << role }
-        end
 
         hashmap
       end
