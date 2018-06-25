@@ -1,5 +1,6 @@
 require 'puppetdb'
 require 'set'
+require 'pry'
 
 module Capistrano
   class PuppetDB
@@ -17,7 +18,11 @@ module Capistrano
 
       server_map = client.request('resources',resource.and(resource_tag)).data.inject({}) do |hashmap, role_resource|
         hashmap[role_resource['certname']] ||= Set.new
-        hashmap[role_resource['certname']] << role_resource['parameters'][role_parameter].to_sym
+
+        role_resource['parameters'][role_parameter].each do |role|
+          hashmap[role_resource['certname']] << role.to_sym
+        end
+
         hashmap
       end
 
