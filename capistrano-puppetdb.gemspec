@@ -18,6 +18,6 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
 
   s.add_runtime_dependency "capistrano"
-  s.add_runtime_dependency("puppetdb-ruby", '0.0.1')
+  s.add_runtime_dependency("puppetdb-ruby", '1.1.1')
 end
 

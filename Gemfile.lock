@@ -3,7 +3,7 @@ PATH
   specs:
     capistrano-puppetdb (0.1.0)
       capistrano
-      puppetdb-ruby (= 0.0.1)
+      puppetdb-ruby (= 1.1.1)
 
 GEM
   remote: https://rubygems.org/
@@ -24,7 +24,7 @@ GEM
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
     net-ssh (5.0.2)
-    puppetdb-ruby (0.0.1)
+    puppetdb-ruby (1.1.1)
       httparty
     rake (12.3.1)
     sshkit (1.16.1)
